@@ -1,10 +1,21 @@
 package application.guiShapes;
 
+
+
+import java.io.File;
+
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -85,6 +96,22 @@ public class ControlArea {
 		textArea.setMaxHeight(450);
 		textArea.setMinHeight(450);
 		textArea.setEditable(false);
+		
+		
+		Image background1 = new Image("https://thumbs.dreamstime.com/b/clear-pure-sky-template-ballons-9598950.jpg");
+		ImageView vm = new ImageView(background1);
+		vm.setFitHeight(700);
+		vm.setFitWidth(1200);
+		  
+        // create a image
+		Image background2 = new Image("https://sm.mashable.com/t/mashable_in/photo/default/nasa-galaxy_9pu4.1920.jpg");
+		ImageView vm2 = new ImageView(background2);
+		//vm.setFitHeight(700);
+		//vm.setFitWidth(300);
+		vm2.setLayoutX(1200);
+		//vm.setLayoutY(700);
+		root.getChildren().addAll(vm);
+		root.getChildren().addAll(vm2);
 
 		root.getChildren().add(labelNode);
 		root.getChildren().add(labelEdge);
@@ -95,5 +122,7 @@ public class ControlArea {
 		root.getChildren().add(clear);
 		root.getChildren().add(solve);
 		root.getChildren().add(textArea);
+		//root.getChildren().add(backgroundimage);
+		
 	}
 }

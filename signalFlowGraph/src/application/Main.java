@@ -7,18 +7,18 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 
-import javafx.scene.paint.Color;
+//import javafx.scene.paint.Color;
 
 public class Main extends Application {
 
 	public void start(Stage stage) {
 
 		Group root = new Group();
-
-		NodeShapes shapes = new NodeShapes(root);
 		new ControlArea(root);
+		NodeShapes shapes = new NodeShapes(root);
+		
 		// Setting the stage
-		Scene scene = new Scene(root, 1500, 700, Color.CORAL);
+		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
 		stage.setScene(scene);
 		stage.show();
