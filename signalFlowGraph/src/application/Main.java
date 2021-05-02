@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.QuadCurve;
 
-
 public class Main extends Application {
 
 	public void start(Stage stage) {
@@ -23,20 +22,6 @@ public class Main extends Application {
 		setBackground(root);
 		NodeShapes shapes = new NodeShapes(root,graph);
 		new ControlArea(root,shapes,graph);
-		QuadCurve c = new QuadCurve();  
-	    c.setStartX(70);  
-	    c.setStartY(30);  
-	    c.setControlX(250);  
-	    c.setControlY(50);
-	    c.setEffect(new DropShadow());
-	    c.setStroke(Color.RED);
-	    c.setStrokeWidth(3.0);
-	    c.setFill(null);
-	    c.setEndX(250);  
-	    c.setEndY(300);  
-	    root.getChildren().add(c);
-	    Arrow a = new Arrow(c);
-	    root.getChildren().add(a.getShape());
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");

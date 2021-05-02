@@ -77,6 +77,15 @@ public class ControlArea {
 		addEdge.setLayoutY(30 + 35);
 		addEdge.setMaxWidth(80);
 		addEdge.setMinWidth(80);
+		addEdge.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent event) {
+		    	if(Gain.getText() != "") {
+		        shapes.AddEdge(Gain.getText());
+		    	}
+		    	
+		    }
+		});
 
 		Button clear = new Button("Clear");
 		clear.setLayoutX(1220 + 20);
