@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-//import javafx.scene.paint.Color;
 
 public class Main extends Application {
 
@@ -20,7 +19,17 @@ public class Main extends Application {
 		setBackground(root);
 		NodeShapes shapes = new NodeShapes(root,graph);
 		new ControlArea(root,shapes,graph);
-
+		/*QuadCurve c = new QuadCurve();  
+	    c.setStartX(70);  
+	    c.setStartY(30);  
+	    c.setControlX(250);  
+	    c.setControlY(50);
+	    c.setEffect(new DropShadow());
+	    c.setFill(Color.RED);  
+	    c.setEffect(new DropShadow());  
+	    c.setEndX(250);  
+	    c.setEndY(300);  
+	    root.getChildren().add(c);*/  
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");

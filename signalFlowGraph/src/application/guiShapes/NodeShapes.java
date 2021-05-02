@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.graph.Graph;
 import javafx.scene.Group;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
@@ -14,8 +15,6 @@ public class NodeShapes {
 	private Group root;
 	private ArrayList<Circle> circles;
 	private Graph graph;
-	private boolean AddEdge = true;
-	private boolean firstClick = true;
 
 	public NodeShapes(Group root,Graph graph) {
 		this.root = root;
@@ -29,6 +28,7 @@ public class NodeShapes {
 		for (int i = 0; i < NodeNum; i++) {
 			graph.addNewBasicNode(i);
 			c = new Circle(i * distance + distance / 2, 350, radius);
+			c.setEffect(new DropShadow());
 			addActions(c);
 			if (i == 0)
 				c.setFill(Color.GREEN);
@@ -59,6 +59,7 @@ public class NodeShapes {
 		if (i != 0)
 			c.setFill(Color.BLACK);
 		c = new Circle(i * distance + distance / 2, 350, radius);
+		c.setEffect(new DropShadow());
 		addActions(c);
 		c.setFill(Color.RED);
 		circles.add(c);
@@ -72,6 +73,8 @@ public class NodeShapes {
 	
 	private int Node1ID,Node2ID;
 	private String Gain;
+	private boolean AddEdge = false;
+	private boolean firstClick = true;
 	private void addActions(Circle c) {
 		c.setOnMouseClicked(e -> {
 			if (AddEdge) {
