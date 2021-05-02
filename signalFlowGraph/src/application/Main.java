@@ -1,5 +1,6 @@
 package application;
 
+import application.graph.Graph;
 import application.guiShapes.ControlArea;
 import application.guiShapes.NodeShapes;
 import javafx.application.Application;
@@ -14,7 +15,7 @@ import javafx.scene.image.ImageView;
 public class Main extends Application {
 
 	public void start(Stage stage) {
-
+		Graph graph = new Graph();
 		Group root = new Group();
 		setBackground(root);
 		
