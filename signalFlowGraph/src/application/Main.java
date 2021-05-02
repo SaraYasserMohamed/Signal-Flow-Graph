@@ -20,20 +20,6 @@ public class Main extends Application {
 		setBackground(root);
 		NodeShapes shapes = new NodeShapes(root,graph);
 		new ControlArea(root,shapes,graph);
-		/*QuadCurve c = new QuadCurve();  
-	    c.setStartX(70);  
-	    c.setStartY(300);  
-	    c.setControlX(160);  
-	    c.setControlY(350);
-	    //c.setEffect(new DropShadow());
-	    c.setStroke(Color.BLACK);
-	    c.setStrokeWidth(3.0);
-	    c.setFill(null);  
-	   // c.setEffect(new DropShadow());  
-	    c.setEndX(250);  
-<<<<<<< HEAD
-	    c.setEndY(300); */ 
-	    //root.getChildren().add(c);  
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
