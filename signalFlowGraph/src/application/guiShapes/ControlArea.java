@@ -1,5 +1,8 @@
 package application.guiShapes;
 
+import application.graph.Graph;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,9 +15,13 @@ import javafx.scene.text.FontWeight;
 
 public class ControlArea {
 	private Group root;
-
-	public ControlArea(Group root) {
+	private NodeShapes shapes;
+	private Graph graph;
+	private int id = 2;
+	public ControlArea(Group root,NodeShapes shapes,Graph graph) {
 		this.root = root;
+		this.graph=graph;
+		this.shapes=shapes;
 		initialize();
 	}
 
@@ -42,6 +49,16 @@ public class ControlArea {
 		addNode.setLayoutY(30 + 5);
 		addNode.setMaxWidth(80);
 		addNode.setMinWidth(80);
+		addNode.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent event) {
+		        shapes.AddNode();
+		        graph.addNewBasicNode(id);
+		        id++;
+		        
+		        Nodes.setText(Integer.toString(id));
+		    }
+		});
 
 		labelEdge.setFont(font);
 		// Filling color to the label

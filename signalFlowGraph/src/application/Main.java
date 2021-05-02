@@ -20,24 +20,12 @@ public class Main extends Application {
 		setBackground(root);
 		
 		NodeShapes shapes = new NodeShapes(root);
-		new ControlArea(root);
+		new ControlArea(root,shapes,graph);
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
 		stage.setScene(scene);
 		stage.show();
-		
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
 
 	}
 	private void setBackground(Group root) {
