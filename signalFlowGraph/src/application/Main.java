@@ -10,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
-
 public class Main extends Application {
 
 	public void start(Stage stage) {
@@ -31,6 +29,7 @@ public class Main extends Application {
 	    c.setFill(null);  
 	   // c.setEffect(new DropShadow());  
 	    c.setEndX(250);  
+<<<<<<< HEAD
 	    c.setEndY(300); */ 
 	    //root.getChildren().add(c);  
 		// Setting the stage
