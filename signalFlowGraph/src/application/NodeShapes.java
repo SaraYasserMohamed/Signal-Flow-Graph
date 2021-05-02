@@ -20,7 +20,7 @@ public class NodeShapes {
 	}
 	
 	private void SetNodeShapes() {
-		double radius = 150/NodeNum;
+		double radius = 200/NodeNum;
 		double distance  = ScreenWidth/NodeNum;
 		Circle c;
 		for (int i = 0 ; i < NodeNum;i++) {
@@ -41,7 +41,7 @@ public class NodeShapes {
 	
 	public void AddNode() {
 		NodeNum++;
-		double radius = 150/NodeNum;
+		double radius = 200/NodeNum;
 		double distance  = ScreenWidth/NodeNum;
 		Circle c = null;int i;
 		for (i = 0 ; i < circles.size() ; i++) {

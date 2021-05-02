@@ -20,6 +20,35 @@ public class Main extends Application {
 			shapes.AddNode();
 			shapes.AddNode();
 			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
