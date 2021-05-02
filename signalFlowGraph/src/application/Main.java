@@ -1,5 +1,6 @@
 package application;
 	
+import application.guiShapes.NodeShapes;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
