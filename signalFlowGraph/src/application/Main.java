@@ -2,19 +2,24 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
 	@Override
-	public void start(Stage primaryStage) {
+	public synchronized void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Group root = new Group();
+			Scene scene = new Scene(root,1200,700);
+			NodeShapes shapes = new NodeShapes(root);
+			primaryStage.setTitle("Signal Flow Graph");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
+			shapes.AddNode();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
