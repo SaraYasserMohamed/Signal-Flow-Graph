@@ -1,4 +1,4 @@
-package application;
+package application.graph;
 
 public class Node {
 	private int id;

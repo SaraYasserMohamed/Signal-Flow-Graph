@@ -1,9 +1,12 @@
 package application;
 	
 
+import application.guiShapes.NodeShapes;
 import javafx.application.Application;
+import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -12,10 +15,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
+
 
 public class Main extends Application {
+
    public void start(Stage stage) {
+	   
       //Creating a Label
       Label labelNode = new Label("Nodes Number:");
       Label labelEdge = new Label("Gain:");
@@ -86,13 +91,48 @@ public class Main extends Application {
       root.getChildren().add(clear);
       root.getChildren().add(slove);
       root.getChildren().add(textArea);
+      
+      NodeShapes shapes = new NodeShapes(root);
       //Setting the stage
       Scene scene = new Scene(root, 900, 650, Color.GRAY);
       stage.setTitle("Signal Flow Graph");
       stage.setScene(scene);
       stage.show();
+      
+      shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
+		shapes.AddNode();
    }
    public static void main(String args[]){
       launch(args);
-   }
+   }	
 }
