@@ -66,8 +66,8 @@ public class NodeShapes {
 		root.getChildren().add(c);
 	}
 	private void setCalculations() {
-		radius = 200 / NodeNum;
-		distance = ScreenWidth / NodeNum;
+		radius = 200 / (double)NodeNum;
+		distance = ScreenWidth /(double)NodeNum;
 	}
 	
 	
