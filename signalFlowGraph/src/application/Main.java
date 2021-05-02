@@ -1,14 +1,18 @@
 package application;
 
 import application.graph.Graph;
+import application.guiShapes.Arrow;
 import application.guiShapes.ControlArea;
 import application.guiShapes.NodeShapes;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.QuadCurve;
 
 
 public class Main extends Application {
@@ -19,17 +23,20 @@ public class Main extends Application {
 		setBackground(root);
 		NodeShapes shapes = new NodeShapes(root,graph);
 		new ControlArea(root,shapes,graph);
-		/*QuadCurve c = new QuadCurve();  
+		QuadCurve c = new QuadCurve();  
 	    c.setStartX(70);  
 	    c.setStartY(30);  
 	    c.setControlX(250);  
 	    c.setControlY(50);
 	    c.setEffect(new DropShadow());
-	    c.setFill(Color.RED);  
-	    c.setEffect(new DropShadow());  
+	    c.setStroke(Color.RED);
+	    c.setStrokeWidth(3.0);
+	    c.setFill(null);
 	    c.setEndX(250);  
 	    c.setEndY(300);  
-	    root.getChildren().add(c);*/  
+	    root.getChildren().add(c);
+	    Arrow a = new Arrow(c);
+	    root.getChildren().add(a.getShape());
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
