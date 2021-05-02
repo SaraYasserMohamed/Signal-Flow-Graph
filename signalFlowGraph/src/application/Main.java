@@ -19,26 +19,13 @@ public class Main extends Application {
 		Group root = new Group();
 		setBackground(root);
 		
-		NodeShapes shapes = new NodeShapes(root);
+		NodeShapes shapes = new NodeShapes(root,graph);
 		new ControlArea(root);
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
 		stage.setScene(scene);
 		stage.show();
-		
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-		shapes.AddNode();
-
 	}
 	private void setBackground(Group root) {
 		Image background1 = new Image("https://www.edarabia.com/ar/wp-content/uploads/2020/11/5-historical-monuments-world-take-sightseeing-historical-tour.jpg");
