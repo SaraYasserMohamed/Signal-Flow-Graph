@@ -1,9 +1,5 @@
 package application.guiShapes;
 
-
-
-import java.io.File;
-
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,11 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -47,7 +38,6 @@ public class ControlArea {
 		Nodes.setMaxWidth(90);
 		Nodes.setMinWidth(90);
 		Nodes.setEditable(false);
-		// tf.setDisable(true);
 
 		Button addNode = new Button("Add Node");
 		addNode.setLayoutX(1220 + 180);
@@ -79,7 +69,7 @@ public class ControlArea {
 		clear.setMaxWidth(230);
 		clear.setMinWidth(230);
 		clear.setStyle("-fx-background-color: #ff0000; -fx-text-fill: #ffffff");
-		// clear.setStyle("-fx-text-fill: #ffffff");
+
 
 		Button solve = new Button("Solve");
 		solve.setLayoutX(1220 + 20);
@@ -98,7 +88,7 @@ public class ControlArea {
 		textArea.setEditable(false);
 		
 		
-		Image background1 = new Image("https://thumbs.dreamstime.com/b/clear-pure-sky-template-ballons-9598950.jpg");
+		Image background1 = new Image("https://www.edarabia.com/ar/wp-content/uploads/2020/11/5-historical-monuments-world-take-sightseeing-historical-tour.jpg");
 		ImageView vm = new ImageView(background1);
 		vm.setFitHeight(700);
 		vm.setFitWidth(1200);
@@ -106,10 +96,7 @@ public class ControlArea {
         // create a image
 		Image background2 = new Image("https://sm.mashable.com/t/mashable_in/photo/default/nasa-galaxy_9pu4.1920.jpg");
 		ImageView vm2 = new ImageView(background2);
-		//vm.setFitHeight(700);
-		//vm.setFitWidth(300);
 		vm2.setLayoutX(1200);
-		//vm.setLayoutY(700);
 		root.getChildren().addAll(vm);
 		root.getChildren().addAll(vm2);
 
@@ -122,7 +109,6 @@ public class ControlArea {
 		root.getChildren().add(clear);
 		root.getChildren().add(solve);
 		root.getChildren().add(textArea);
-		//root.getChildren().add(backgroundimage);
 		
 	}
 }

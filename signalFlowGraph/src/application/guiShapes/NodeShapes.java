@@ -28,7 +28,7 @@ public class NodeShapes {
 			else if (i == NodeNum - 1)
 				c.setFill(Color.RED);
 			else
-				c.setFill(Color.GRAY);
+				c.setFill(Color.BLACK);
 			circles.add(c);
 		}
 	}
@@ -50,7 +50,7 @@ public class NodeShapes {
 			c.setRadius(radius);
 		}
 		if (i != 0)
-			c.setFill(Color.GRAY);
+			c.setFill(Color.BLACK);
 		c = new Circle(i * distance + distance / 2, 350, radius);
 		c.setFill(Color.RED);
 		circles.add(c);
