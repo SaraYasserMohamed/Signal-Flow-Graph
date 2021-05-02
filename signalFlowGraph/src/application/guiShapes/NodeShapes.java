@@ -14,12 +14,14 @@ public class NodeShapes {
 	private double radius, distance;
 	private Group root;
 	private ArrayList<Circle> circles;
+	private ArrayList<Arc> Edges;
 	private Graph graph;
 
 	public NodeShapes(Group root,Graph graph) {
 		this.root = root;
 		this.graph = graph;
 		circles = new ArrayList<Circle>();
+		Edges = new ArrayList<Arc>();
 		initialize();
 	}
 
@@ -64,15 +66,9 @@ public class NodeShapes {
 		c.setFill(Color.RED);
 		circles.add(c);
 		root.getChildren().add(c);
+		modifyEdges();
 	}
-	public void reDraw() {
-		Circle c;
-		for (int i = 0; i < circles.size(); i++) {
-			c = circles.get(i);
-			c.setCenterX(i * distance + distance / 2);
-			c.setRadius(radius);
-		}
-	}
+
 	private void setCalculations() {
 		radius = 200 / (double)NodeNum;
 		distance = ScreenWidth /(double)NodeNum;
@@ -97,13 +93,19 @@ public class NodeShapes {
 					circle2 = c ;
 					System.out.println("second click At Node "+Node2ID);
 					graph.addNode(Node1ID, Node2ID, Gain);
-					new Arc(root,circle1,circle2,3.0);
-					reDraw();
+					Edges.add(new Arc(root,circle1,circle2,3.0));
 					firstClick = true;
 					AddEdge = false;
 				}
 			}
 		});
+	}
+	
+	private void modifyEdges() {
+
+		for (Arc arc : Edges) {
+			arc.setControl();
+		}
 	}
 	
 	

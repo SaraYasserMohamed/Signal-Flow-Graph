@@ -1,18 +1,14 @@
 package application;
 
 import application.graph.Graph;
-import application.guiShapes.Arrow;
 import application.guiShapes.ControlArea;
 import application.guiShapes.NodeShapes;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.QuadCurve;
 
 public class Main extends Application {
 

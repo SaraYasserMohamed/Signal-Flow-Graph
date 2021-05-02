@@ -17,6 +17,7 @@ public class Arc {
 		this.c2 = c2;
 		this.width = width;
 		drawArc();
+		drawArrow();
 	}
 	private void drawArc() {
 		arc = new QuadCurve();  
@@ -26,8 +27,8 @@ public class Arc {
 		arc.endXProperty().bind(c2.centerXProperty());
 		arc.endYProperty().bind(c2.centerYProperty());
 		
-		double X = (c1.getCenterX()+c2.getCenterX())/2.0;
-		double Y = (c1.getCenterX()-c2.getCenterX())/4.0;
+		double X = (c1.getCenterX()+c2.getCenterX())/2;
+		double Y = (c1.getCenterX()-c2.getCenterX())/2;
 		arc.setControlX(X);
 		arc.setControlY(350+Y);
 		
@@ -35,6 +36,30 @@ public class Arc {
 		arc.setStrokeWidth(width);
 		arc.setFill(null);
 		root.getChildren().add(2, arc);
+		
+	}
+	public void setControl () {
+		double X = (c1.getCenterX()+c2.getCenterX())/2;
+		double Y = ((c1.getCenterX()-c2.getCenterX())/4)+350;
+		arc.setControlX(X);
+		arc.setControlY(Y);
+	}
+	private void drawArrow() {
+		Arrow arrow = new Arrow(arc);
+		//detect change in circle for edge
+		c1.centerXProperty().addListener(e ->{
+		arrow.updateRotate();
+		});
+		c1.centerYProperty().addListener(e ->{
+		arrow.updateRotate();
+		});
+		c2.centerXProperty().addListener(e ->{
+		arrow.updateRotate();
+		});
+		c2.centerYProperty().addListener(e ->{
+		arrow.updateRotate();
+		});
+		root.getChildren().add(arrow.getShape());
 		
 	}
 	void setWidth(double width) {
