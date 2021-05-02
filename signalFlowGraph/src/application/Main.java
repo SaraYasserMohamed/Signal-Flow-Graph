@@ -18,9 +18,9 @@ public class Main extends Application {
 		Graph graph = new Graph();
 		Group root = new Group();
 		setBackground(root);
-		
 		NodeShapes shapes = new NodeShapes(root,graph);
-		new ControlArea(root);
+		new ControlArea(root,shapes,graph);
+
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
