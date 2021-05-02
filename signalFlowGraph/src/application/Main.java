@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
+
 public class Main extends Application {
 
 	public void start(Stage stage) {
@@ -21,15 +22,17 @@ public class Main extends Application {
 		new ControlArea(root,shapes,graph);
 		/*QuadCurve c = new QuadCurve();  
 	    c.setStartX(70);  
-	    c.setStartY(30);  
-	    c.setControlX(250);  
-	    c.setControlY(50);
-	    c.setEffect(new DropShadow());
-	    c.setFill(Color.RED);  
-	    c.setEffect(new DropShadow());  
+	    c.setStartY(300);  
+	    c.setControlX(160);  
+	    c.setControlY(350);
+	    //c.setEffect(new DropShadow());
+	    c.setStroke(Color.BLACK);
+	    c.setStrokeWidth(3.0);
+	    c.setFill(null);  
+	   // c.setEffect(new DropShadow());  
 	    c.setEndX(250);  
-	    c.setEndY(300);  
-	    root.getChildren().add(c);*/  
+	    c.setEndY(300); */ 
+	    //root.getChildren().add(c);  
 		// Setting the stage
 		Scene scene = new Scene(root, 1500, 700);
 		stage.setTitle("Signal Flow Graph");

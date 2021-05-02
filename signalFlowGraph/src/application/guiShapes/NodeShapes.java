@@ -65,6 +65,14 @@ public class NodeShapes {
 		circles.add(c);
 		root.getChildren().add(c);
 	}
+	public void reDraw() {
+		Circle c;
+		for (int i = 0; i < circles.size(); i++) {
+			c = circles.get(i);
+			c.setCenterX(i * distance + distance / 2);
+			c.setRadius(radius);
+		}
+	}
 	private void setCalculations() {
 		radius = 200 / (double)NodeNum;
 		distance = ScreenWidth /(double)NodeNum;
@@ -72,6 +80,7 @@ public class NodeShapes {
 	
 	
 	private int Node1ID,Node2ID;
+	private Circle circle1,circle2 ;
 	private String Gain;
 	private boolean AddEdge = false;
 	private boolean firstClick = true;
@@ -80,12 +89,16 @@ public class NodeShapes {
 			if (AddEdge) {
 				if (firstClick) {
 					Node1ID = circles.indexOf(c);
+					circle1 = c ;
 					System.out.println("first click At Node "+Node1ID);
 					firstClick = false;
 				}else {
 					Node2ID = circles.indexOf(c);
+					circle2 = c ;
 					System.out.println("second click At Node "+Node2ID);
 					graph.addNode(Node1ID, Node2ID, Gain);
+					new Arc(root,circle1,circle2,3.0);
+					reDraw();
 					firstClick = true;
 					AddEdge = false;
 				}
