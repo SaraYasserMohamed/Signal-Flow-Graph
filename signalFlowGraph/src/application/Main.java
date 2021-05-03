@@ -28,7 +28,7 @@ public class Main extends Application {
 	}
 	public static void setBackground(Group root) {
 		
-		Image background1 = new Image(new File("MainBackground.jpg").toURI().toString());
+		Image background1 = new Image(new File("Crystal-clear-sea-10.jpg").toURI().toString());
 		ImageView vm = new ImageView(background1);
 		vm.setLayoutX(5);
 		vm.setLayoutY(5);
