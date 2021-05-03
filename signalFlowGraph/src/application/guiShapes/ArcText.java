@@ -28,12 +28,10 @@ public class ArcText {
 		text.setStroke(Color.HOTPINK);
 		text.setStrokeWidth(1.5);
 		// Setting the text to be added.
-		// text.setText("Ahmed");
 		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.ITALIC, 15));
 		// setting the position of the text
 		text.setX(X);
 		text.setY(Y);
-		// System.out.println(X+" "+Y);
 		root.getChildren().add(text);
 	}
 
