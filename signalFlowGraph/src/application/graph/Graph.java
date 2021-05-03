@@ -16,6 +16,9 @@ public class Graph {
 	public String getGain (int BasicNodeID,int NodeID) {
 		return graph.get(BasicNodeID).getNode(NodeID).getGain();
 	}
+	public BasicNode getBasicNode(int id) {
+		return graph.get(id);
+	}
 	public ArrayList<BasicNode> getGraph() {
 		return graph;
 	}
