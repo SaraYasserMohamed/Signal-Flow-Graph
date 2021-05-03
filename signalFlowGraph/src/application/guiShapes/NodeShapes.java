@@ -52,7 +52,6 @@ public class NodeShapes {
 	private void initialize() {
 		setCalculations();
 		SetNodeShapes();
-		//this.root.getChildren().addAll(circles);
 	}
 
 	public void AddNode() {
@@ -127,8 +126,8 @@ public class NodeShapes {
 					Node2ID = circles.indexOf(c);
 					//System.out.println("second click At Node "+Node2ID);
 					graph.addNode(Node1ID, Node2ID, Gain);
-					double w = 20.0 / (double) NodeNum ;
-					Edges.add(new Arc(root,circle1,c,w,Gain));
+					//double w = 10 / (double) NodeNum ;
+					Edges.add(new Arc(root,circle1,c,4,Gain));
 					firstClick = true;
 					AddEdge = false;
 				}
@@ -137,10 +136,10 @@ public class NodeShapes {
 	}
 	
 	private void modifyEdges() {
-		double w = 20.0 / (double) NodeNum ;
+		//double w = 10 / (double) NodeNum ;
 		for (Arc arc : Edges) {
 			arc.setControl();
-			arc.setWidth(w);
+			//arc.setWidth(1.5*w);
 		}
 	}
 	
