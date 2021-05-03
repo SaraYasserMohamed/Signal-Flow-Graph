@@ -26,7 +26,7 @@ public class Main extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-	private void setBackground(Group root) {
+	public static void setBackground(Group root) {
 		
 		Image background1 = new Image(new File("MainBackground.jpg").toURI().toString());
 		ImageView vm = new ImageView(background1);

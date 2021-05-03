@@ -2,6 +2,7 @@ package application.guiShapes;
 
 import java.io.File;
 
+import application.Main;
 import application.graph.Graph;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -99,6 +100,16 @@ public class ControlArea {
 		clear.setMaxWidth(230);
 		clear.setMinWidth(230);
 		clear.setStyle("-fx-background-color: #ff0000; -fx-text-fill: #ffffff");
+		clear.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent event) {
+		    	root.getChildren().clear();
+		    	Main.setBackground(root);
+		    	graph = new Graph();
+		    	shapes = new NodeShapes(root, graph);
+		    	new ControlArea(root, shapes, graph);
+		    }
+		});
 
 		Button solve = new Button("Solve");
 		solve.setLayoutX(1220 + 20);
