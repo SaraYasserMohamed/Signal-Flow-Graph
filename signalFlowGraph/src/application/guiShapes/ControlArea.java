@@ -1,5 +1,7 @@
 package application.guiShapes;
 
+import java.io.File;
+
 import application.graph.Graph;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -18,7 +21,9 @@ public class ControlArea {
 	private NodeShapes shapes;
 	private Graph graph;
 	private int id = 2;
+	AudioClip ALERT = new AudioClip(new File("Error Alert.mp3").toURI().toString());
 	public ControlArea(Group root,NodeShapes shapes,Graph graph) {
+		ALERT = new AudioClip(new File("Error Alert.mp3").toURI().toString());
 		this.root = root;
 		this.graph=graph;
 		this.shapes=shapes;
@@ -55,7 +60,6 @@ public class ControlArea {
 		        shapes.AddNode();
 		        graph.addNewBasicNode(id);
 		        id++;
-		        
 		        Nodes.setText(Integer.toString(id));
 		    }
 		});
@@ -82,6 +86,8 @@ public class ControlArea {
 		    public void handle(ActionEvent event) {
 		    	if(Gain.getText() != "") {
 		        shapes.AddEdge(Gain.getText());
+		    	}else {
+					ALERT.play();
 		    	}
 		    	
 		    }

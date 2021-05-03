@@ -7,6 +7,10 @@ import javafx.scene.Group;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 public class NodeShapes {
 
@@ -15,13 +19,14 @@ public class NodeShapes {
 	private Group root;
 	private ArrayList<Circle> circles;
 	private ArrayList<Arc> Edges;
+	private ArrayList<Text> texts;
 	private Graph graph;
-
 	public NodeShapes(Group root,Graph graph) {
 		this.root = root;
 		this.graph = graph;
 		circles = new ArrayList<Circle>();
 		Edges = new ArrayList<Arc>();
+		texts = new ArrayList<Text>();
 		initialize();
 	}
 
@@ -39,13 +44,15 @@ public class NodeShapes {
 			else
 				c.setFill(Color.BLACK);
 			circles.add(c);
+			root.getChildren().add(c);
+			AddText(c,i);
 		}
 	}
 
 	private void initialize() {
 		setCalculations();
 		SetNodeShapes();
-		this.root.getChildren().addAll(circles);
+		//this.root.getChildren().addAll(circles);
 	}
 
 	public void AddNode() {
@@ -66,8 +73,35 @@ public class NodeShapes {
 		c.setFill(Color.RED);
 		circles.add(c);
 		root.getChildren().add(c);
+		AddText(c,i);
 		modifyEdges();
+		modifyText();
 	}
+	
+	
+	private void AddText (Circle circle , int id) {
+		Text text = new Text(id+"");
+		text.setFill(null);
+		text.setStroke(Color.GOLD);
+		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.ITALIC, 15));
+		text.setStrokeWidth(2);
+		text.setX(circle.getCenterX()-10);
+		text.setY(circle.getCenterY()+circle.getRadius()+15);
+		texts.add(text);
+		//modifyText(circle, id);
+		root.getChildren().add(text);
+	}
+	
+	private void modifyText() {
+		Text text;Circle circle;
+		for (int i = 0 ; i < texts.size()-1;i++) {
+			text = texts.get(i);
+			circle = circles.get(i);
+			text.setX(circle.getCenterX()-10);
+			text.setY(circle.getCenterY()+circle.getRadius()+15);
+		}
+	}
+	
 
 	private void setCalculations() {
 		radius = 200 / (double)NodeNum;
@@ -76,7 +110,7 @@ public class NodeShapes {
 	
 	
 	private int Node1ID,Node2ID;
-	private Circle circle1,circle2 ;
+	private Circle circle1;
 	private String Gain;
 	private boolean AddEdge = false;
 	private boolean firstClick = true;
@@ -84,16 +118,16 @@ public class NodeShapes {
 		c.setOnMouseClicked(e -> {
 			if (AddEdge) {
 				if (firstClick) {
-					Node1ID = circles.indexOf(c);
+					//Node1ID = circles.indexOf(c);
 					circle1 = c ;
-					System.out.println("first click At Node "+Node1ID);
+					//System.out.println("first click At Node "+Node1ID);
 					firstClick = false;
 				}else {
+					Node1ID = circles.indexOf(circle1);
 					Node2ID = circles.indexOf(c);
-					circle2 = c ;
-					System.out.println("second click At Node "+Node2ID);
+					//System.out.println("second click At Node "+Node2ID);
 					graph.addNode(Node1ID, Node2ID, Gain);
-					Edges.add(new Arc(root,circle1,circle2,3.0));
+					Edges.add(new Arc(root,circle1,c,3.0));
 					firstClick = true;
 					AddEdge = false;
 				}
