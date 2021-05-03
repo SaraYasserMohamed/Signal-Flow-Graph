@@ -1,5 +1,6 @@
 package application.guiShapes;
 
+
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -11,11 +12,15 @@ public class Arc {
 	private Circle c2;
 	QuadCurve arc;
 	private double width;
-	public Arc(Group root,Circle c1,Circle c2,double width) {
+	private String Gain;
+	private ArcText at;
+	//private ArrayList<ArcText> texts;
+	public Arc(Group root,Circle c1,Circle c2,double width,String Gain) {
 		this.root = root;
 		this.c1 = c1;
 		this.c2 = c2;
 		this.width = width;
+		this.Gain = Gain;
 		drawArc();
 		drawArrow();
 	}
@@ -36,6 +41,17 @@ public class Arc {
 		arc.setStrokeWidth(width);
 		arc.setFill(null);
 		root.getChildren().add(2, arc);
+		if(Y>0) {
+			double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
+			double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
+			at = new ArcText(root, Gain, newX-10, newY+15);
+			//texts.add(at);
+		}else {
+			double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
+			double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
+			at = new ArcText(root, Gain, newX-10, newY-15);
+			//texts.add(at);
+		}
 		
 	}
 	public void setControl () {
@@ -43,6 +59,9 @@ public class Arc {
 		double Y = ((c1.getCenterX()-c2.getCenterX())/4)+350;
 		arc.setControlX(X);
 		arc.setControlY(Y);
+		double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
+		double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
+		at.updataPosition(newX, newY);
 	}
 	private void drawArrow() {
 		Arrow arrow = new Arrow(arc);
@@ -62,7 +81,7 @@ public class Arc {
 		root.getChildren().add(arrow.getShape());
 		
 	}
-	void setWidth(double width) {
+	public void setWidth(double width) {
 		arc.setStrokeWidth(width);
 	}
 
