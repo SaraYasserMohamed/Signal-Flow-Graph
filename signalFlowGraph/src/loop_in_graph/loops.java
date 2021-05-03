@@ -37,7 +37,7 @@ public class loops {
 		sort(loops);
 		return loops;
 	}
-	 
+	  
 	public void sort(List<String[]> loops) {
 		for(String[] list : loops) {
 			Arrays.sort(list);
