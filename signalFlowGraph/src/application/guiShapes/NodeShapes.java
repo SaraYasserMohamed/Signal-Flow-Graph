@@ -146,13 +146,12 @@ public class NodeShapes {
 						} else {
 							Edges.add(new Arc(root, circle1, c, 4, Gain));
 						}
-						AddEdgeButton.setStyle("");
-						firstClick = true;
-						AddEdge = false;
 					} else {
 						ALERT.play();
 					}
-
+					AddEdgeButton.setStyle("");
+					firstClick = true;
+					AddEdge = false;
 				}
 			}
 		});
