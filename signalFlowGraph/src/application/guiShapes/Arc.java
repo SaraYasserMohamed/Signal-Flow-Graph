@@ -1,6 +1,7 @@
 package application.guiShapes;
 
 import javafx.scene.Group;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.QuadCurve;
@@ -43,6 +44,8 @@ public class Arc {
 		arc.setStroke(Color.GOLD);
 		arc.setStrokeWidth(width);
 		arc.setFill(null);
+		arc.setEffect(new DropShadow());
+		
 		root.getChildren().add(2, arc);
 		double newX = (arc.getBoundsInLocal().getMinX() + arc.getBoundsInLocal().getMaxX()) / 2;
 		double newY = arc.getBoundsInLocal().getMinY() + arc.getBoundsInLocal().getMaxY() - 350;

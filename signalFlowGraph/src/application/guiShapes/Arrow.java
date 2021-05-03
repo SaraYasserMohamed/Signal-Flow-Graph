@@ -1,5 +1,6 @@
 package application.guiShapes;
 
+import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.QuadCurve;
@@ -18,6 +19,7 @@ public class Arrow {
 		shape.setFill(Color.BLACK);
 		shape.setStroke(Color.GOLD);
 		shape.setStrokeWidth(1.5);
+		shape.setEffect(new DropShadow());
 		updateRotate(curve);
 	}
 

@@ -133,7 +133,11 @@ public class NodeShapes {
 					//System.out.println("second click At Node "+Node2ID);
 					graph.addNode(Node1ID, Node2ID, Gain);
 					//double w = 10 / (double) NodeNum ;
+					if(Node1ID == Node2ID) {
+						new CircleConnect(root, c, NodeNum);
+					}else {
 					Edges.add(new Arc(root,circle1,c,4,Gain));
+					}
 					firstClick = true;
 					AddEdge = false;
 				}
