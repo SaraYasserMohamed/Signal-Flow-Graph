@@ -54,7 +54,7 @@ public class loops {
 			System.out.println(Arrays.toString(list));
 		}
 	}
-	
+	 
 	private void traverse(Node current, int startID, HashMap<Integer, Integer> visited, Graph graph, List<String[]> loops)  {
 		
 		if(current.getId() == startID) { 
