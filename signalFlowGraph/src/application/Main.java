@@ -30,10 +30,10 @@ public class Main extends Application {
 		
 		Image background1 = new Image(new File("MainBackground.jpg").toURI().toString());
 		ImageView vm = new ImageView(background1);
-		vm.setLayoutX(10);
-		vm.setLayoutY(10);
-		vm.setFitHeight(680);
-		vm.setFitWidth(1180);
+		vm.setLayoutX(5);
+		vm.setLayoutY(5);
+		vm.setFitHeight(690);
+		vm.setFitWidth(1190);
 		  
         // create a image
 		Image background2 = new Image(new File("backGround.jpg").toURI().toString());
