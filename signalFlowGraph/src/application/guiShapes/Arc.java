@@ -10,6 +10,7 @@ public class Arc {
 	private Group root;
 	private Circle c1;
 	private Circle c2;
+	private Arrow arrow;
 	QuadCurve arc;
 	private double width;
 	private String Gain;
@@ -33,7 +34,7 @@ public class Arc {
 		arc.endYProperty().bind(c2.centerYProperty());
 		
 		double X = (c1.getCenterX()+c2.getCenterX())/2;
-		double Y = (c1.getCenterX()-c2.getCenterX())/2;
+		double Y = (c1.getCenterX()-c2.getCenterX())/4;
 		arc.setControlX(X);
 		arc.setControlY(350+Y);
 		
@@ -60,21 +61,21 @@ public class Arc {
 		double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
 		double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
 		at.updataPosition(newX-10, newY+temp);
+		arrow.updateRotate(arc);
 	}
 	private void drawArrow() {
-		Arrow arrow = new Arrow(arc);
-		//detect change in circle for edge
+		 arrow = new Arrow(arc);
 		c1.centerXProperty().addListener(e ->{
-		arrow.updateRotate();
+		arrow.updateRotate(arc);
 		});
 		c1.centerYProperty().addListener(e ->{
-		arrow.updateRotate();
+		arrow.updateRotate(arc);
 		});
 		c2.centerXProperty().addListener(e ->{
-		arrow.updateRotate();
+		arrow.updateRotate(arc);
 		});
 		c2.centerYProperty().addListener(e ->{
-		arrow.updateRotate();
+		arrow.updateRotate(arc);
 		});
 		root.getChildren().add(arrow.getShape());
 		
