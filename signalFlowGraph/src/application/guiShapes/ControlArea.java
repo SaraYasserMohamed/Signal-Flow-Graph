@@ -1,7 +1,6 @@
 package application.guiShapes;
 
 import java.io.File;
-
 import application.Main;
 import application.graph.Graph;
 import javafx.event.ActionEvent;
@@ -23,6 +22,7 @@ public class ControlArea {
 	private Graph graph;
 	private int id = 2;
 	AudioClip ALERT;
+	
 	public ControlArea(Group root,NodeShapes shapes,Graph graph) {
 		ALERT = new AudioClip(new File("Error Alert.mp3").toURI().toString());
 		this.root = root;
