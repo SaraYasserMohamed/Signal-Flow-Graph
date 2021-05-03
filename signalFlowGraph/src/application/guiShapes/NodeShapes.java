@@ -81,6 +81,7 @@ public class NodeShapes {
 		circles = new ArrayList<Circle>();
 		Edges = new ArrayList<Arc>();
 		texts = new ArrayList<Text>();
+		initialize();
 	}
 	
 	private void AddText (Circle circle , int id) {
