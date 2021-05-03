@@ -14,6 +14,7 @@ public class Arc {
 	private double width;
 	private String Gain;
 	private ArcText at;
+
 	int temp = 0;
 
 	public Arc(Group root, Circle c1, Circle c2, double width, String Gain) {
@@ -52,7 +53,6 @@ public class Arc {
 			temp = -15;
 		}
 		at = new ArcText(root, Gain, newX - 10, newY + temp);
-
 	}
 
 	public void setControl() {
