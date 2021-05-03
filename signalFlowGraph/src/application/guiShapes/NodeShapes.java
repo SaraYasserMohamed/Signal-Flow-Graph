@@ -141,7 +141,7 @@ public class NodeShapes {
 					graph.addNode(Node1ID, Node2ID, Gain);
 					//double w = 10 / (double) NodeNum ;
 					if(Node1ID == Node2ID) {
-						new CircleConnect(root, c, NodeNum);
+						new CircleConnect(root, c, NodeNum,Gain);
 					}else {
 					Edges.add(new Arc(root,circle1,c,4,Gain));
 					}

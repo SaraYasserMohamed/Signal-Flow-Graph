@@ -11,10 +11,13 @@ public class CircleConnect {
 	private Circle connect;
 	private double radius;
 	private int NodeNum;
-	public CircleConnect(Group root,Circle c,int NodeNum) {
+	private String Gain ;
+	private ArcText at;
+	public CircleConnect(Group root,Circle c,int NodeNum,String Gain) {
 		this.root=root;
 		this.c=c;
 		this.NodeNum=NodeNum;
+		this.Gain = Gain;
 		drawConnect();
 	}
 	private void drawConnect() {
@@ -28,12 +31,14 @@ public class CircleConnect {
 		connect.setStrokeWidth(4);
 		connect.setEffect(new DropShadow());
 		root.getChildren().add(2,connect);
+		at = new ArcText(root, Gain, c.getCenterX()-10, c.getCenterY()-2*radius-15);
 		c.centerXProperty().addListener(e -> {
 			NodeNum++;
 			setCalculations();
 			connect.setCenterX(c.getCenterX());
 			connect.setCenterY(c.getCenterY()-radius);
 			connect.setRadius(radius);
+			at.updataPosition(c.getCenterX()-10, c.getCenterY()-2*radius-15);
 		});
 	}
 	private void setCalculations() {
