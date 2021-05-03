@@ -14,7 +14,7 @@ public class Arc {
 	private double width;
 	private String Gain;
 	private ArcText at;
-	//private ArrayList<ArcText> texts;
+	int temp=0;
 	public Arc(Group root,Circle c1,Circle c2,double width,String Gain) {
 		this.root = root;
 		this.c1 = c1;
@@ -41,17 +41,15 @@ public class Arc {
 		arc.setStrokeWidth(width);
 		arc.setFill(null);
 		root.getChildren().add(2, arc);
+		double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
+		double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
+		
 		if(Y>0) {
-			double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
-			double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
-			at = new ArcText(root, Gain, newX-10, newY+15);
-			//texts.add(at);
-		}else {
-			double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
-			double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
-			at = new ArcText(root, Gain, newX-10, newY-15);
-			//texts.add(at);
+			temp=15;
+		}else {		
+			temp=-15;
 		}
+		at = new ArcText(root, Gain, newX-10, newY+temp);
 		
 	}
 	public void setControl () {
@@ -61,7 +59,7 @@ public class Arc {
 		arc.setControlY(Y);
 		double newX = (arc.getBoundsInLocal().getMinX()+arc.getBoundsInLocal().getMaxX())/2;
 		double newY = arc.getBoundsInLocal().getMinY()+arc.getBoundsInLocal().getMaxY()-350;
-		at.updataPosition(newX, newY);
+		at.updataPosition(newX-10, newY+temp);
 	}
 	private void drawArrow() {
 		Arrow arrow = new Arrow(arc);
