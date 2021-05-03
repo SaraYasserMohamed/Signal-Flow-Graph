@@ -77,6 +77,11 @@ public class NodeShapes {
 		modifyText();
 	}
 	
+	public void ClearData() {
+		circles = new ArrayList<Circle>();
+		Edges = new ArrayList<Arc>();
+		texts = new ArrayList<Text>();
+	}
 	
 	private void AddText (Circle circle , int id) {
 		Text text = new Text(id+"");
