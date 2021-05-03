@@ -81,10 +81,10 @@ public class NodeShapes {
 	
 	private void AddText (Circle circle , int id) {
 		Text text = new Text(id+"");
-		text.setFill(null);
+		text.setFill(Color.BLACK);
 		text.setStroke(Color.GOLD);
 		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.ITALIC, 15));
-		text.setStrokeWidth(2);
+		text.setStrokeWidth(1.5);
 		text.setX(circle.getCenterX()-10);
 		text.setY(circle.getCenterY()+circle.getRadius()+15);
 		texts.add(text);
