@@ -1,10 +1,13 @@
 package application.guiShapes;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import application.graph.Graph;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -21,9 +24,11 @@ public class NodeShapes {
 	private ArrayList<Arc> Edges;
 	private ArrayList<Text> texts;
 	private Graph graph;
+	AudioClip popup;
 	public NodeShapes(Group root,Graph graph) {
 		this.root = root;
 		this.graph = graph;
+		popup = new AudioClip(new File("popup.wav").toURI().toString());
 		circles = new ArrayList<Circle>();
 		Edges = new ArrayList<Arc>();
 		texts = new ArrayList<Text>();
@@ -119,6 +124,7 @@ public class NodeShapes {
 	private String Gain;
 	private boolean AddEdge = false;
 	private boolean firstClick = true;
+	private Button AddEdgeButton;
 	private void addActions(Circle c) {
 		c.setOnMouseClicked(e -> {
 			if (AddEdge) {
@@ -127,6 +133,7 @@ public class NodeShapes {
 					circle1 = c ;
 					//System.out.println("first click At Node "+Node1ID);
 					firstClick = false;
+					AddEdgeButton.setStyle("-fx-background-color: #ff0000; -fx-text-fill: #ffffff");
 				}else {
 					Node1ID = circles.indexOf(circle1);
 					Node2ID = circles.indexOf(c);
@@ -138,9 +145,11 @@ public class NodeShapes {
 					}else {
 					Edges.add(new Arc(root,circle1,c,4,Gain));
 					}
+					AddEdgeButton.setStyle("");
 					firstClick = true;
 					AddEdge = false;
 				}
+				popup.play();
 			}
 		});
 	}
@@ -154,9 +163,11 @@ public class NodeShapes {
 	}
 	
 	
-	public void AddEdge(String Gain) {
+	public void AddEdge(String Gain,Button b) {
 		AddEdge = true;
+		b.setStyle("-fx-background-color: #00ff00");
 		this.Gain = Gain;
+		this.AddEdgeButton = b;
 	}
 
 	public ArrayList<Circle> getNodes() {
