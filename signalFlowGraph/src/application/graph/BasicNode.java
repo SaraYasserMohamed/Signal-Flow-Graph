@@ -26,10 +26,10 @@ public class BasicNode {
 	public boolean isContain(int NodeID) {
 		for (Node n: nodes) {
 			if(n.getId()==NodeID) {
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	public ArrayList<Node> getNodes() {
 		return nodes;
