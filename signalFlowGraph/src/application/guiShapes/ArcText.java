@@ -1,6 +1,7 @@
 package application.guiShapes;
 
 import javafx.scene.Group;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -29,6 +30,7 @@ public class ArcText {
 		text.setStrokeWidth(1.5);
 		// Setting the text to be added.
 		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.ITALIC, 15));
+		text.setEffect(new DropShadow());
 		// setting the position of the text
 		text.setX(X);
 		text.setY(Y);

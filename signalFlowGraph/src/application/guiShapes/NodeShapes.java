@@ -98,6 +98,7 @@ public class NodeShapes {
 		text.setStroke(Color.GOLD);
 		text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.ITALIC, 15));
 		text.setStrokeWidth(1.5);
+		text.setEffect(new DropShadow());
 		text.setX(circle.getCenterX() - 10);
 		text.setY(circle.getCenterY() + circle.getRadius() + 15);
 		texts.add(text);
