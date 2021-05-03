@@ -22,12 +22,12 @@ public class ControlArea {
 	private Graph graph;
 	private int id = 2;
 	AudioClip ALERT;
-	
-	public ControlArea(Group root,NodeShapes shapes,Graph graph) {
-		ALERT = new AudioClip(new File("Error Alert.mp3").toURI().toString());
+
+	public ControlArea(Group root, NodeShapes shapes, Graph graph) {
+		ALERT = new AudioClip(new File("Error Alert.wav").toURI().toString());
 		this.root = root;
-		this.graph=graph;
-		this.shapes=shapes;
+		this.graph = graph;
+		this.shapes = shapes;
 		initialize();
 	}
 
@@ -56,13 +56,13 @@ public class ControlArea {
 		addNode.setMaxWidth(80);
 		addNode.setMinWidth(80);
 		addNode.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override
-		    public void handle(ActionEvent event) {
-		        shapes.AddNode();
-		        graph.addNewBasicNode(id);
-		        id++;
-		        Nodes.setText(Integer.toString(id));
-		    }
+			@Override
+			public void handle(ActionEvent event) {
+				shapes.AddNode();
+				graph.addNewBasicNode(id);
+				id++;
+				Nodes.setText(Integer.toString(id));
+			}
 		});
 
 		labelEdge.setFont(font);
@@ -83,16 +83,16 @@ public class ControlArea {
 		addEdge.setMaxWidth(80);
 		addEdge.setMinWidth(80);
 		addEdge.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override
-		    public void handle(ActionEvent event) {
-		    	if(!Gain.getText().equals("")) {
-		        shapes.AddEdge(Gain.getText(),addEdge);
-		        //System.out.println(Gain.getText());
-		    	}else {
+			@Override
+			public void handle(ActionEvent event) {
+				if (!Gain.getText().equals("")) {
+					shapes.AddEdge(Gain.getText(), addEdge);
+					// System.out.println(Gain.getText());
+				} else {
 					ALERT.play();
-		    	}
-		    	
-		    }
+				}
+
+			}
 		});
 
 		Button clear = new Button("Clear");
@@ -102,14 +102,14 @@ public class ControlArea {
 		clear.setMinWidth(230);
 		clear.setStyle("-fx-background-color: #ff0000; -fx-text-fill: #ffffff");
 		clear.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override
-		    public void handle(ActionEvent event) {
-		    	root.getChildren().clear();
-		    	Main.setBackground(root);
-		    	graph = new Graph();
-		    	shapes = new NodeShapes(root, graph);
-		    	new ControlArea(root, shapes, graph);
-		    }
+			@Override
+			public void handle(ActionEvent event) {
+				root.getChildren().clear();
+				Main.setBackground(root);
+				graph = new Graph();
+				shapes = new NodeShapes(root, graph);
+				new ControlArea(root, shapes, graph);
+			}
 		});
 
 		Button solve = new Button("Solve");

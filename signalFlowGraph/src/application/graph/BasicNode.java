@@ -22,6 +22,15 @@ public class BasicNode {
 		}
 		return null;
 	}
+	
+	public boolean isContain(int NodeID) {
+		for (Node n: nodes) {
+			if(n.getId()==NodeID) {
+				return false;
+			}
+		}
+		return true;
+	}
 	public ArrayList<Node> getNodes() {
 		return nodes;
 	}
