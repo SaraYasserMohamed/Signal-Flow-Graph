@@ -8,7 +8,7 @@ import java.util.Stack;
 
 import application.graph.*;
 //
-public class LoopsDetctor {
+public class LoopsDetector {
 	
 	private Stack<Integer> path = new Stack<Integer>();
 	
@@ -73,7 +73,7 @@ public class LoopsDetctor {
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
-		LoopsDetctor m = new LoopsDetctor();
+		LoopsDetector m = new LoopsDetector();
 		
 		Graph graph = m.makeGraph();
 		List<Integer[]> loops = m.findLoops(graph);
