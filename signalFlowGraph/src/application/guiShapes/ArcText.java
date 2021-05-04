@@ -10,12 +10,12 @@ import javafx.scene.text.Text;
 
 public class ArcText {
 	private Group root;
-	private String Gain;
+	private int Gain;
 	private double X;
 	private double Y;
 	Text text;
 
-	public ArcText(Group root, String Gain, double X, double Y) {
+	public ArcText(Group root, int Gain, double X, double Y) {
 		this.root = root;
 		this.Gain = Gain;
 		this.X = X;
@@ -24,7 +24,7 @@ public class ArcText {
 	}
 
 	private void writetext() {
-		text = new Text(Gain);
+		text = new Text(Gain+"");
 		text.setFill(Color.BLACK);
 		text.setStroke(Color.HOTPINK);
 		text.setStrokeWidth(1.5);

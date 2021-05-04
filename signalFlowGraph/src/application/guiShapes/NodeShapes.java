@@ -124,7 +124,7 @@ public class NodeShapes {
 
 	private int Node1ID, Node2ID;
 	private Circle circle1;
-	private String Gain;
+	private int Gain;
 	private boolean AddEdge = false;
 	private boolean firstClick = true;
 	private Button AddEdgeButton;
@@ -166,7 +166,7 @@ public class NodeShapes {
 		}
 	}
 
-	public void AddEdge(String Gain, Button b) {
+	public void AddEdge(int Gain, Button b) {
 		AddEdge = true;
 		b.setStyle("-fx-background-color: #00ff00");
 		this.Gain = Gain;

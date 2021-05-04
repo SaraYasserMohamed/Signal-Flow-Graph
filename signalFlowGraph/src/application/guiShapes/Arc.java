@@ -13,12 +13,12 @@ public class Arc {
 	QuadCurve arc;
 	private Arrow arrow;
 	private double width;
-	private String Gain;
+	private int Gain;
 	private ArcText at;
 
 	int temp = 0;
 
-	public Arc(Group root, Circle c1, Circle c2, double width, String Gain) {
+	public Arc(Group root, Circle c1, Circle c2, double width, int Gain) {
 		this.root = root;
 		this.c1 = c1;
 		this.c2 = c2;

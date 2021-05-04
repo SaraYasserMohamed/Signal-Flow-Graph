@@ -85,9 +85,13 @@ public class ControlArea {
 		addEdge.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				if (!Gain.getText().equals("")) {
-					shapes.AddEdge(Gain.getText(), addEdge);
-					// System.out.println(Gain.getText());
+				String GainText = Gain.getText();
+				if (!GainText.equals("")) {
+					try {
+						shapes.AddEdge(Integer.parseInt(GainText), addEdge);
+					}catch (Exception e) {
+						ALERT.play();
+					}
 				} else {
 					ALERT.play();
 				}

@@ -11,9 +11,9 @@ public class CircleConnect {
 	private Circle connect;
 	private double radius;
 	private int NodeNum;
-	private String Gain ;
+	private int Gain ;
 	private ArcText at;
-	public CircleConnect(Group root,Circle c,int NodeNum,String Gain) {
+	public CircleConnect(Group root,Circle c,int NodeNum,int Gain) {
 		this.root=root;
 		this.c=c;
 		this.NodeNum=NodeNum;
