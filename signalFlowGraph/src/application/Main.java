@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -20,8 +21,10 @@ public class Main extends Application {
 		setBackground(root);
 		NodeShapes shapes = new NodeShapes(root,graph);
 		new ControlArea(root,shapes,graph);
+		ScrollPane sp = new ScrollPane();
+		sp.setContent(root);
 		// Setting the stage
-		Scene scene = new Scene(root, 1500, 700);
+		Scene scene = new Scene(sp, 1500, 700);
 		stage.setTitle("Signal Flow Graph");
 		stage.setScene(scene);
 		stage.show();
@@ -39,6 +42,8 @@ public class Main extends Application {
 		Image background2 = new Image(new File("backGround.jpg").toURI().toString());
 		ImageView vm2 = new ImageView(background2);
 		vm2.setLayoutX(1200);
+		vm2.setFitHeight(700);
+		vm2.setFitWidth(300);
 		root.getChildren().addAll(vm);
 		root.getChildren().addAll(vm2);
 	}
