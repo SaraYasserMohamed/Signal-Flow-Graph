@@ -46,7 +46,7 @@ public class loops {
 			for(int j=i+1 ; j<loops.size();j++) {
 				if(Arrays.equals(loops.get(i),loops.get(j))) {
 					loops.remove(j);
-					j--;
+					j--; 
 				}
 			}
 		}
