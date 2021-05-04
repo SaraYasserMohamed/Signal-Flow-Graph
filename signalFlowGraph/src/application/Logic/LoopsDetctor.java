@@ -28,18 +28,17 @@ public class LoopsDetctor {
 				traverse(node, Bnode.getId(), visited, graph, loops);
 			}
 		}
-		sort(loops);
 		for(Integer[] list : loops) {
 			System.out.println(Arrays.toString(list));
 		}
-		
 		return loops;
 	}
 	
 	private void traverse(Node current, int startID, HashMap<Integer, Integer> visited, Graph graph, List<Integer[]> loops)  {
 		
 		if(current.getId() == startID) {
-			loops.add(path.toArray(new Integer[path.size()]));
+			if(!isExist(path, loops))
+				loops.add(path.toArray(new Integer[path.size()]));
 			return;
 		}
 		if(visited.containsKey(current.getId())) return;
@@ -57,18 +56,20 @@ public class LoopsDetctor {
 		path.pop();
 	}
 	
-	public void sort(List<Integer[]> loops) {
-		for(Integer[] list : loops) {
-			Arrays.sort(list);
-		}
-		for(int i=0 ; i<loops.size();i++) {
-			for(int j=i+1 ; j<loops.size();j++) {
-				if(Arrays.equals(loops.get(i),loops.get(j))) {
-					loops.remove(j);
-					j--; 
-				}
+	private boolean isExist(Stack<Integer> path, List<Integer[]> loop) {
+		for(Integer[] oldPath : loop) {
+			if(path.size() == oldPath.length)
+			{
+				List<Integer> checkList = new ArrayList<Integer>();
+				for(Integer num : oldPath) checkList.add(num);
+				
+				for(Integer num : path)
+					checkList.remove(Integer.valueOf(num));
+				
+				if(checkList.isEmpty()) return true;
 			}
 		}
+		return false;
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
