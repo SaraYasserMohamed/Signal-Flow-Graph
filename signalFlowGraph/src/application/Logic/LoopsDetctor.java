@@ -28,7 +28,7 @@ public class LoopsDetctor {
 				traverse(node, Bnode.getId(), visited, graph, loops);
 			}
 		}
-		//sort(loops);
+		sort(loops);
 		for(Integer[] list : loops) {
 			System.out.println(Arrays.toString(list));
 		}
@@ -39,9 +39,7 @@ public class LoopsDetctor {
 	private void traverse(Node current, int startID, HashMap<Integer, Integer> visited, Graph graph, List<Integer[]> loops)  {
 		
 		if(current.getId() == startID) {
-			path.add(current.getId());
 			loops.add(path.toArray(new Integer[path.size()]));
-			path.pop();
 			return;
 		}
 		if(visited.containsKey(current.getId())) return;
