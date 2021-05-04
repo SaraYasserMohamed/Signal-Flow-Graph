@@ -1,71 +1,54 @@
 package application.Logic;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 import application.graph.*;
-//
+
 public class LoopsDetector {
 	
-	private Stack<Integer> path = new Stack<Integer>();
-	
-	public List<Integer[]> findLoops(Graph graph) {
-		
-		List<Integer[]> loops = new ArrayList<Integer[]>();
+	public Integer[][] findLoops(Graph graph) {
+		List<Integer[]> loops = new LinkedList<Integer[]>();
+		Stack<Integer> visited = new Stack<Integer>();
 		
 		for (BasicNode Bnode : graph.getGraph()) {
 			for(Node node : Bnode.getNodes()) {
-				
-				HashMap<Integer, Integer> visited = new HashMap<Integer, Integer>();
-				path.clear();
-				
-				visited.put(Bnode.getId(), 0);
-				path.add(Bnode.getId());
-				
+				visited.clear();
+				visited.add(Bnode.getId());
 				traverse(node, Bnode.getId(), visited, graph, loops);
 			}
 		}
-		for(Integer[] list : loops) {
-			System.out.println(Arrays.toString(list));
-		}
-		return loops;
+		return loops.toArray(new Integer[loops.size()][]);
 	}
 	
-	private void traverse(Node current, int startID, HashMap<Integer, Integer> visited, Graph graph, List<Integer[]> loops)  {
+	private void traverse(Node current, int startID, Stack<Integer> visited, Graph graph, List<Integer[]> loops)  {
 		
 		if(current.getId() == startID) {
-			if(!isExist(path, loops))
-				loops.add(path.toArray(new Integer[path.size()]));
+			if(!isExist(visited, loops))
+				loops.add(visited.toArray(new Integer[visited.size()]));
 			return;
 		}
-		if(visited.containsKey(current.getId())) return;
+		if(visited.contains(current.getId())) return;
 		
 		BasicNode currentBasicNode = graph.getGraph().get(current.getId());
 		if(currentBasicNode.getNodes().size() == 0) return;
 		
-		visited.put(current.getId(), 0);
-		path.add(current.getId());
-		
+		visited.add(current.getId());
 		for(Node node : currentBasicNode.getNodes()) {
 			traverse(node, startID, visited, graph, loops);
 		}
-		visited.remove(current.getId());
-		path.pop();
+		visited.pop();
 	}
 	
-	private boolean isExist(Stack<Integer> path, List<Integer[]> loop) {
-		for(Integer[] oldPath : loop) {
-			if(path.size() == oldPath.length)
-			{
-				List<Integer> checkList = new ArrayList<Integer>();
+	private boolean isExist(List<Integer> path, List<Integer[]> loop) {
+		for(Integer[] oldPath : loop) 
+		{
+			if(path.size() == oldPath.length) {
+				List<Integer> checkList = new LinkedList<Integer>();
+				
 				for(Integer num : oldPath) checkList.add(num);
-				
-				for(Integer num : path)
-					checkList.remove(Integer.valueOf(num));
-				
+				for(Integer num : path) checkList.remove(Integer.valueOf(num));
 				if(checkList.isEmpty()) return true;
 			}
 		}
@@ -76,9 +59,12 @@ public class LoopsDetector {
 		LoopsDetector m = new LoopsDetector();
 		
 		Graph graph = m.makeGraph();
-		List<Integer[]> loops = m.findLoops(graph);
+		Integer[][] loops = m.findLoops(graph);
 		
-		loops.toString();
+		for(Integer[] list : loops) {
+			for(Integer num : list) System.out.print(num +" ");
+			System.out.println("");
+		}
 	}
 	private Graph makeGraph() {
 		Graph graph = new Graph();
