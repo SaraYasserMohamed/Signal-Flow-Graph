@@ -1,8 +1,7 @@
-package graph;
+package application.Logic;
 
 import java.util.ArrayList;
 
-import application.graph.BasicNode;
 import application.graph.Graph;
 import application.graph.Node;
 
@@ -72,4 +71,3 @@ public class forwardPaths {
 		
 	}
 	}
-	
