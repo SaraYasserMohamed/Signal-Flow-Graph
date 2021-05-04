@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Stack;
 
 import application.graph.*;
-
+//
 public class LoopsDetctor {
 	
 	private Stack<Integer> path = new Stack<Integer>();
