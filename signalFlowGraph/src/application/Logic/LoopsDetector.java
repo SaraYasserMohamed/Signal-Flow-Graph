@@ -78,18 +78,16 @@ public class LoopsDetector {
 		graph.addNewBasicNode(6);
 		graph.addNewBasicNode(7);
 		
-		/*
-		graph.addNode(0, 1, "1");
-		graph.addNode(1, 6, "G4");
-		graph.addNode(2, 3, "G1");
-		graph.addNode(3, 4, "G2");
-		graph.addNode(4, 3, "-H1");
-		graph.addNode(4, 2, "H1");
-		graph.addNode(4, 5, "G3");
-		graph.addNode(5, 3, "-H2");
-		graph.addNode(5, 6, "1");
-		graph.addNode(6, 7, "1");
-		*/
+		graph.addNode(0, 1, -1);
+		graph.addNode(1, 6, -1);
+		graph.addNode(2, 3, -1);
+		graph.addNode(3, 4, -1);
+		graph.addNode(4, 3, -1);
+		graph.addNode(4, 2, -1);
+		graph.addNode(4, 5, -1);
+		graph.addNode(5, 3, -1);
+		graph.addNode(5, 6, -1);
+		graph.addNode(6, 7, -1);
 		
 		return graph;
 	}
