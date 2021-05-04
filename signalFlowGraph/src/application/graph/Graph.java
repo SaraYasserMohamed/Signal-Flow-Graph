@@ -10,14 +10,14 @@ public class Graph {
 	public void addNewBasicNode(int id) {
 		graph.add(new BasicNode(id));
 	}
-	public boolean addNode(int BasicNodeID , int NodeID ,String gain) {
+	public boolean addNode(int BasicNodeID , int NodeID ,int gain) {
 		BasicNode bn = graph.get(BasicNodeID);
 		if (bn.isContain(NodeID))
 			return false;
 		bn.AddnewNode(new Node(NodeID,gain));
 		return true;
 	}
-	public String getGain (int BasicNodeID,int NodeID) {
+	public int getGain (int BasicNodeID,int NodeID) {
 		return graph.get(BasicNodeID).getNode(NodeID).getGain();
 	}
 	public BasicNode getBasicNode(int id) {
