@@ -1,5 +1,6 @@
 package application.Logic;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -65,6 +66,10 @@ public class LoopsDetector {
 			for(Integer num : list) System.out.print(num +" ");
 			System.out.println("");
 		}
+		NonTouchingLoop l = new NonTouchingLoop(3);
+		ArrayList<ArrayList<String>> arr = l.getNonTouchingLoops(loops) ;
+		for(int i=0 ;i<arr.size();i++)
+			System.out.println(arr.get(i));
 	}
 	private Graph makeGraph() {
 		Graph graph = new Graph();
