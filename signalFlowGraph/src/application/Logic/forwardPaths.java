@@ -1,4 +1,4 @@
-package application.Logic;
+package graph;
 
 import java.util.ArrayList;
 
@@ -13,14 +13,15 @@ public class forwardPaths {
 	private void find_all_forward_paths(Graph g,int u,int dest,int cost,ArrayList<Integer> psf) {
 		if (u == dest) {
 			psf.add(u) ;
-			forward_paths.add(new pair(psf, cost)) ; 
+			ArrayList<Integer> tmp = (ArrayList<Integer>)psf.clone();
+			forward_paths.add(new pair(tmp, cost)) ; 
 			return ; 
 		}
 		vis[u] = true ; 
 		psf.add(u);
 		for (Node v : g.getBasicNode(u).getNodes()) {
 			if (!vis[v.getId()])
-				find_all_forward_paths(g,v.getId(), dest,cost*v.getGain(), psf);
+				find_all_forward_paths(g,v.getId(),dest,cost*v.getGain(), psf);
 		}
 		vis[u] = false ; 
 		psf.remove(psf.size()-1);
@@ -35,7 +36,7 @@ public class forwardPaths {
 		}
 	}
 	public ArrayList<pair> get_forward_paths (Graph g,int src,int dest){
-		find_all_forward_paths(g, src, dest,1,new ArrayList<Integer>());
+		find_all_forward_paths(g,src,dest,1,new ArrayList<Integer>());
 		return forward_paths ; 
 	}
 	
@@ -49,18 +50,14 @@ public class forwardPaths {
 		graph.addNewBasicNode(4);
 		graph.addNewBasicNode(5);
 		graph.addNewBasicNode(6);
-		graph.addNewBasicNode(7);
 		
 		graph.addNode(0, 1, 1);
-		graph.addNode(1, 6, 2);
+		graph.addNode(1, 2, 2);
 		graph.addNode(2, 3, 3);
 		graph.addNode(3, 4, 4);
-		graph.addNode(4, 3, 6);
-		graph.addNode(4, 2, 6);
-		graph.addNode(4, 5, 12);
-		graph.addNode(5, 3, -1);
-		graph.addNode(5, 6,12);
-		graph.addNode(6, 7, 12);
+		graph.addNode(4, 5, 6);
+		graph.addNode(5, 6, 6);
+		graph.addNode(2, 5, 6);
 		
 		forwardPaths solver = new forwardPaths();
 		ArrayList<pair> res = solver.get_forward_paths(graph, 0, 6) ; 
@@ -69,20 +66,10 @@ public class forwardPaths {
 			for (Integer u : p.path) {
 				System.out.print(u + " ");
 			}
-			System.out.println();
+			System.out.println("  Cost = " + p.cost);
 		}
 		
 		
 	}
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
