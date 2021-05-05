@@ -19,7 +19,7 @@ public class NonTouchingLoop {
 
 
 
-	void findSubsets(String[] array, int index, ArrayList<String> combination) {
+void findSubsets(String[] array, int index, ArrayList<String> combination) {
 
 	if (index == array.length) {
 		if(combination.size() == n )
