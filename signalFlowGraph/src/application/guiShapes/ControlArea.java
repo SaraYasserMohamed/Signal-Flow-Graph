@@ -23,10 +23,10 @@ public class ControlArea {
 	private int id = 2;
 	AudioClip ALERT;
 
-	public ControlArea(Group root, Graph graph) {
+	public ControlArea(Group root) {
 		ALERT = new AudioClip(new File("Error Alert.wav").toURI().toString());
 		this.root = root;
-		this.graph = graph;
+		this.graph = new Graph();
 		this.shapes = new NodeShapes(root,graph);
 		initialize();
 	}
@@ -110,9 +110,7 @@ public class ControlArea {
 			public void handle(ActionEvent event) {
 				root.getChildren().clear();
 				Main.setBackground(root);
-				graph = new Graph();
-				//shapes = new NodeShapes(root, graph);
-				new ControlArea(root, graph);
+				new ControlArea(root);
 			}
 		});
 

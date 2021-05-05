@@ -2,7 +2,6 @@ package application;
 
 import java.io.File;
 
-import application.graph.Graph;
 import application.guiShapes.ControlArea;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,10 +14,9 @@ import javafx.scene.image.ImageView;
 public class Main extends Application {
 
 	public void start(Stage stage) {
-		Graph graph = new Graph();
 		Group root = new Group();
 		setBackground(root);
-		new ControlArea(root,graph);
+		new ControlArea(root);
 		ScrollPane sp = new ScrollPane();
 		sp.setContent(root);
 		// Setting the stage
